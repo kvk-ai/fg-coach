@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>KVK Financieringscoach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Roboto font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --kvk-blue: #21516c;
+      --kvk-light: #e8f2f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: var(--kvk-light);
+      color: #123;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--kvk-blue);
+      color: #ffffff;
+      padding: 16px 24px;
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 24px;
+      max-width: 960px;
+      width: 100%;
+      border-top: 4px solid var(--kvk-blue);
+    }
+
+    .card-header {
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      margin: 0 0 4px;
+      font-size: 1.4rem;
+      color: var(--kvk-blue);
+      font-weight: 500;
+    }
+
+    .card-subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #456;
+    }
+
+    .form-wrapper {
+      margin-top: 16px;
+    }
+
+    /* Zorg dat de Typeform mooi schaalt */
+    [data-tf-live] {
+      width: 100%;
+      min-height: 500px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">KVK · Financieringscoach</div>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-title">Aan de slag met uw financieringsadvies</h1>
+        <p class="card-subtitle">
+          Beantwoord een paar korte vragen. Daarna gaat uw gesprek met de AI-financieringscoach direct verder.
+        </p>
+      </div>
+
+      <div class="form-wrapper">
+        <div
+          data-tf-live="01KAJJCCPG1NQBTAGFK9NGVBZK"
+          data-tf-on-submit="handleTypeformSubmit"
+        ></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Typeform embed script -->
+  <script src="https://embed.typeform.com/next/embed.js"></script>
+
+  <script>
+    // Wordt automatisch aangeroepen zodra de Typeform is verstuurd
+    function handleTypeformSubmit({ formId, responseId }) {
+      var url =
+        "https://fg-ai-coach.lovable.app/?session_id=" +
+        encodeURIComponent(responseId);
+
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
